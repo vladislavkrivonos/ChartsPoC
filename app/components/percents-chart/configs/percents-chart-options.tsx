@@ -12,10 +12,17 @@ export const CHART_OPTIONS = {
     horzLines: { color: '#eee' },
   },
   rightPriceScale: {
-    autoScale: false,
+    autoScale: true,
     borderVisible: false,
     scaleMargins: { top: 0.1, bottom: 0.1 },
     visible: true,
+  },
+  leftPriceScale: {
+    autoScale: true,
+    visible: false,
+  },
+  handleScale: {
+    axisPressedMouseMove: false, // Disable vertical movement
   },
   localization: {
     priceFormatter: (price: number) => `${price.toFixed(0)}%`,
