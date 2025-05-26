@@ -1,7 +1,7 @@
 import type { MetaFunction } from "@remix-run/node";
 import { useState } from "react";
-import { DisplayDate, GraphComponentTradingView } from "~/components/graph";
-import { renderLineChart } from "~/components/recharts";
+import { DisplayDate } from "~/components/graph";
+import PercentsChart from '~/components/percents-chart/PercentsChart';
 
 export interface GraphData {
     color: string;
@@ -27,19 +27,19 @@ export default function Index() {
       data: [
         { time: '2018-12-22', value: 32.51 },
         { time: '2018-12-23', value: 31.11 },
-        { time: '2018-12-24', value: 27.02 },
-        { time: '2018-12-25', value: 27.32 },
-        { time: '2018-12-26', value: 25.17 },
-        { time: '2018-12-27', value: 28.89 },
-        { time: '2018-12-28', value: 25.46 },
-        { time: '2018-12-29', value: 23.92 },
-        { time: '2018-12-30', value: 22.68 },
-        { time: '2018-12-31', value: 22.67 },
+        { time: '2018-12-24', value: 37.02 },
+        { time: '2018-12-25', value: 47.32 },
+        { time: '2018-12-26', value: 55.17 },
+        { time: '2018-12-27', value: 68.89 },
+        { time: '2018-12-28', value: 75.46 },
+        { time: '2018-12-29', value: 83.92 },
+        { time: '2018-12-30', value: 9.68 },
+        { time: '2018-12-31', value: 82.67 },
       ]
     },
     {
       color: 'red',
-      isDisplayed: false,
+      isDisplayed: true,
       data: [
         { time: '2018-12-22', value: 40 },
         { time: '2018-12-23', value: 41.11 },
@@ -55,7 +55,7 @@ export default function Index() {
     },
     {
       color: 'blue',
-      isDisplayed: false,
+      isDisplayed: true,
       data: [
         { time: '2018-12-22', value: 60 },
         { time: '2018-12-23', value: 61.11 },
@@ -105,12 +105,15 @@ export default function Index() {
   }
 
   return (
-    <div className="flex h-full items-center justify-center flex-col">      
+    <div className="flex h-full items-center justify-center flex-col">
+        {/*Initial example of percentage chart*/}
+        <PercentsChart key={`${series.length}_${visibleDate}`} series={series}/>
+
         <div className="cursor-pointer" onClick={() => handleAnySeries(1)}>Second Series</div>
         <div className="cursor-pointer" onClick={() => handleAnySeries(2)}>Third Series</div>
-        <div>
-        <GraphComponentTradingView series={series} key={`${series.length}_${visibleDate}`} displayDate={visibleDate} />
-        </div>
+        {/*<div>*/}
+        {/*<GraphComponentTradingView series={series} key={`${series.length}_${visibleDate}`} displayDate={visibleDate} />*/}
+        {/*</div>*/}
         <div className="flex flex-row w-64 justify-around">
           <div className="cursor-pointer" onClick={() => setVisibleDate(DisplayDate.Day)}>1d</div>
           <div className="cursor-pointer" onClick={() => setVisibleDate(DisplayDate.Week)}>1w</div>
