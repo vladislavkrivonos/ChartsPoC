@@ -1,7 +1,7 @@
 import React, { useRef, useEffect } from 'react';
 import { createChart, LineSeries } from 'lightweight-charts';
 import { GraphData } from '~/routes/_index';
-import { CHART_OPTIONS, SERIES_OPTIONS } from '~/components/percents-chart/constants/percents-chart-options';
+import { CHART_OPTIONS, SERIES_OPTIONS } from '~/components/percents-chart/configs/percents-chart-options';
 
 const PercentsChart: React.FC<{ series: GraphData[] }> = ({ series }) => {
   const chartContainerRef = useRef<HTMLDivElement>(null);
