@@ -1,6 +1,6 @@
-import { LineStyleOptions, SeriesOptionsCommon } from 'lightweight-charts';
+import { ChartOptions, DeepPartial, LineStyleOptions, SeriesOptionsCommon } from 'lightweight-charts';
 
-export const CHART_OPTIONS = {
+export const CHART_OPTIONS: DeepPartial<ChartOptions> = {
   width: 0, // Will be updated dynamically
   height: 300,
   layout: {
@@ -27,6 +27,9 @@ export const CHART_OPTIONS = {
   localization: {
     priceFormatter: (price: number) => `${price.toFixed(0)}%`,
   },
+  timeScale: {
+    rightOffset: 1 // This is amount of BARS that we offset from the right
+  }
 };
 
 export const SERIES_OPTIONS: Partial<LineStyleOptions & SeriesOptionsCommon> = {

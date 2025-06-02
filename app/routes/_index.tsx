@@ -6,6 +6,7 @@ import PercentsChart from '~/components/percents-chart/PercentsChart';
 export interface GraphData {
     color: string;
     isDisplayed: boolean;
+    name: string;
     data: {
         time: string;
         value: number;
@@ -24,6 +25,7 @@ export default function Index() {
     {
       color: 'green',
       isDisplayed: true,
+      name: "Lakers",
       data: [
         { time: '2018-12-22', value: 32.51 },
         { time: '2018-12-23', value: 31.11 },
@@ -40,6 +42,7 @@ export default function Index() {
     {
       color: 'red',
       isDisplayed: true,
+      name: "Celtics",
       data: [
         { time: '2018-12-22', value: 40 },
         { time: '2018-12-23', value: 41.11 },
@@ -56,6 +59,7 @@ export default function Index() {
     {
       color: 'blue',
       isDisplayed: true,
+      name: "Nuggets",
       data: [
         { time: '2018-12-22', value: 60 },
         { time: '2018-12-23', value: 61.11 },
